@@ -1,0 +1,32 @@
+header {
+  border-bottom: 2px solid rgba(18, 251, 173, 0.568);
+}
+
+.header {
+  display: flex;
+  max-width: 1400px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px auto;
+  @media (max-width: 1370px) {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  &_logo {
+    color: rgb(233, 137, 58);
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+  }
+  button {
+    cursor: pointer;
+    outline: none;
+    font-size: 18px;
+    padding: 5px;
+    border: none;
+    transition: 0.4s ease;
+    &:hover {
+      color: #cbee31;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+.require {
+  margin: 10% auto;
+  width: 400px;
+  height: 300px;
+  border: 2px solid #efe;
+  border-radius: 5%;
+  text-align: center;
+  p {
+    margin: 20px;
+    margin-top: 20%;
+    font-size: 16px;
+    color: rgb(18, 251, 174);
+  }
+  input {
+    margin: 0 auto;
+    width: 140px;
+    padding-left: 15px;
+    border: none;
+    border-bottom: 2px solid rgb(18, 251, 174);
+    outline: none;
+    font-size: 24px;
+    color: rgb(233, 137, 58);
+  }
+}

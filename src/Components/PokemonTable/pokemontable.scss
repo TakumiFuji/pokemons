@@ -1,0 +1,11 @@
+.dropdown__pokemon {
+  position: relative;
+  display: flex;
+  margin: 15px;
+  @media (max-width: 1350px) {
+    flex-direction: column;
+    &:first-child {
+      z-index: 9999;
+    }
+  }
+}

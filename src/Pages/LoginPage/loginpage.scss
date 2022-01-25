@@ -1,0 +1,41 @@
+form {
+  margin: 10% auto;
+  max-width: 600px;
+  height: 400px;
+  border: 2px solid #efefef;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  h1 {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+  input {
+    margin: 20px;
+    padding-left: 15px;
+    border: none;
+    border-bottom: 2px solid #efefef;
+    outline: none;
+    color: #efefef;
+    transition: 0.9s ease-in;
+    font-size: 16px;
+    &:focus {
+      border-bottom: 2px solid #8f8f8f;
+    }
+  }
+  button {
+    width: 140px;
+    margin: 20px auto;
+    outline: none;
+    font-size: 18px;
+    padding: 5px;
+    border: 2px solid #efefef;
+    border-radius: 15px;
+    transition: 0.5s ease-in;
+    &:hover {
+      color: #8f8f8f;
+      border: 2px solid #8f8f8f;
+    }
+  }
+}

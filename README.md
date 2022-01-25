@@ -1,46 +1,50 @@
-# Getting Started with Create React App
+## 1 Задание
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##### Сколько ушло времени?
 
-## Available Scripts
+> 4 часа
 
-In the project directory, you can run:
+Изначально хотел сделать при помощи _рекурсивной функции_, но она выдаст мне все значения нашего обьекта, в итоге спустя какое-то время до меня дошло, что можно попробовать что-то сделать с **path** , и спустя какое-то время у меня наконец получилось.
 
-### `npm start`
+#### Решение задачи
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```
+const getObjectProperty = (obj, path, defaultValue) => {
+  let ourPathSplit = path.split(".") // Разбиваем наш path на отдельные слова(св-ва) обьекта и кладется в массив
+  let res = obj // Создаем переменную res  и присваиваем ей значения нашего обьекта с аргументов(obj)
+  for (let i = 0; i < ourPathSplit.length; i++) {
+    // Создаем цикл и пробегаемся по нашему массиву путей
+    if (ourPathSplit[i] in res) {
+      // Проверяем есть ли ourPathSplit[i] (подстрока) в нашем обьекте ?
+      res = res[ourPathSplit[i]] // В успешном случае результату будет присвоено значение нашего передаваемого пути ourPathSplit
+    } else {
+      res = defaultValue // В противном случае наш результат будет defaultValue из аргументов
+      break
+    }
+  }
+}
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 2 Задание
 
-### `npm test`
+### Страница авторизации
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Много думал как по красивому реализовать регистрацию без подключения сторонних менеджеров состояния и остановился на useContext, сделал Контекст для перехода на страницу с OTP, также форму валидации и проверку валидности введенных данных, если все ввели правильно нас перекидывает на страницу с одноразовым паролем, если нет, то вылазеет алерт и ругается на нас что мы ввели что-то неправильно
 
-### `npm run build`
+- _Правильный логин и пароль спрятал в **env** файл_
+  > Потратил времени: **1 день**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Страница с одноразовым паролем
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Сделал функцию которая генерирует наш случайный ключ, при первом рендере компонента и проверку валидность введенных данных с инпута _Ключ вылазеет в алерте и в консоли_, если все правильно ввели, состояние _auth_ меняется и нас перекидывает на главную страницу нашего приложения, также во время этой страницы сделал хук useLocalStorage который запоминает и изменяет наше состояние auth в браузер и настроил защищенный роутинг в приложении, честно ушло много времени на типизацию Провайдеров, т.к мудрил очень и в итоге потратил на это целый день.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+>
 
-### `npm run eject`
+### Главная страница с нашими покемонами
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+> На ней мы отрисовываем наших покемонов с сервера и рендерим компонент Table, где находиться наша карточка
+>
+> > Также сделал легкую Пагинацию, и при нажатии в карточке на картинку, вылазеет модальное окно с большой картинкой этой карточки.
+> > Чтобы посмотреть подробнее о покемоне, нужно кликнуть на его имя, после нас перебросит на страничку **PokemonPage** с данными о покемоне, где мы через id в url берем данные с сервера о каждом покемоне.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Проэкт делал примерно полторы недели, ошибки возникали с логикой декомпозиции приложения, т.к я изначально начал все разбивать на мелкие файлы(отдельные куски кода, логики) в итоге у меня ничего не работало, пришлось избавиться от столь тщательного оверинженеринга, потратил на это дня 4)))
