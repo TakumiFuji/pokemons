@@ -1,5 +1,5 @@
 import { FC } from "react"
-import { Routes, Route, Navigate } from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 import "./app.scss"
 import LoginPage from "./Pages/LoginPage/LoginPage"
 import RequirePage from "./Pages/RequirePage/RequirePage"
@@ -13,8 +13,8 @@ import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage"
 
 const App: FC = () => {
   return (
-    <AuthProvider>
-      <RequireProvider>
+    <RequireProvider>
+      <AuthProvider>
         <Routes>
           <Route path="login" element={<LoginPage />} />
           <Route element={<RequireRoutes />}>
@@ -22,12 +22,12 @@ const App: FC = () => {
           </Route>
           <Route element={<AuthRoutes />}>
             <Route path="/" element={<HomePage />} />
-            <Route path=":id" element={<PokemonPage />} />
+            <Route path="pokemon/:id" element={<PokemonPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
-          <Route path="*" element={<NotFoundPage />} />
         </Routes>
-      </RequireProvider>
-    </AuthProvider>
+      </AuthProvider>
+    </RequireProvider>
   )
 }
 

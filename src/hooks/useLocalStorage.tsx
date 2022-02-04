@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-export const useLocalStorage = (initialValue: boolean | [], key: string) => {
+export const useLocalStorage = (initialValue: boolean, key: string) => {
   const getValue = () => {
     const storage = localStorage.getItem(key)
 

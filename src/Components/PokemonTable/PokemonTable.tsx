@@ -6,9 +6,11 @@ import DropdownSelect from "../Dropdown/DropdownSelect"
 import Table from "../Table/Table"
 import Pagination from "../Pagination/Pagination"
 import "./pokemontable.scss"
+import Loader from "../Loader/Loader"
 
 const PokemonTable: FC = () => {
   // Состояние покемонов, типа и подтипа
+
   const [allPokemons, setAllPokemons] = useState<ICard[]>([])
   const [types, setTypes] = useState<string[]>([])
   const [subTypes, setSubTypes] = useState<string[]>([])
@@ -65,7 +67,7 @@ const PokemonTable: FC = () => {
   }
 
   return (
-    <div style={{ display: "flex" }}>
+    <div className="table_main">
       <div className="dropdown__pokemon">
         <DropdownSelect
           selectedOption={selectedOptionType}
@@ -82,7 +84,11 @@ const PokemonTable: FC = () => {
       </div>
       <div>
         {errorMessage && <h3>На сервере какаято ошибка, скоро исправим!!</h3>}
-        <Table allPokemons={currentPokemon} />
+        {allPokemons.length ? (
+          <Table allPokemons={currentPokemon} />
+        ) : (
+          <Loader />
+        )}
 
         {pokemons.length > 8 && (
           <Pagination

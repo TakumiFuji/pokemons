@@ -3,4 +3,7 @@
   max-width: 1200px;
   display: flex;
   flex-wrap: wrap;
+  @media (max-width: 800px) {
+    justify-content: center;
+  }
 }

@@ -1,6 +1,5 @@
 import { FC, memo } from "react"
 import { ICard } from "../../API/fetchPokemons"
-import Loader from "../Loader/Loader"
 import PokemonCard from "../PokemonCard/PokemonCard"
 import "./table.scss"
 
@@ -24,7 +23,7 @@ const Table: FC<Props> = ({ allPokemons }) => {
       })}
     </div>
   ) : (
-    <Loader />
+    <div>Покемонов такого типа не</div>
   )
 }
 export default memo(Table)

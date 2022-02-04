@@ -4,7 +4,7 @@ import { useRequire } from "../Context/RequireContext"
 
 const RequireRoutes: FC = () => {
   const { validate } = useRequire()
-  return validate ? <Outlet /> : <Navigate to="login" />
+  return validate ? <Outlet /> : <Navigate to="login" replace />
 }
 
 export default RequireRoutes

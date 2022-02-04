@@ -28,10 +28,11 @@ const RequirePage: FC = () => {
 
     console.log(secretKey)
   }, [secretKey])
-
-  if (key === secretKey) {
-    login()
-  }
+  useEffect(() => {
+    if (key === secretKey) {
+      login()
+    }
+  }, [key]) //eslint-disable-line
 
   return (
     <div className="require">

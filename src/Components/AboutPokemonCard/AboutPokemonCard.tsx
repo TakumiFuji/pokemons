@@ -13,22 +13,19 @@ const AboutPokemonCard: FC = () => {
       setPokemon(response.data)
     })
   }, [id])
-  console.log(pokemon)
   const navigate = useNavigate()
   const goBack = () => {
     navigate(-1)
   }
 
   return (
-    <div>
+    <div className="container">
       <div className="about">
         <button onClick={goBack}>Go back</button>
         <div className="about__image">
-          <img
-            src={pokemon?.images.large}
-            alt={pokemon?.name}
-            loading="eager"
-          />
+          <div className="image">
+            <img src={pokemon?.images.large} alt={pokemon?.name} />
+          </div>
           <div className="about__image__text">
             {pokemon?.attacks?.map((t) => {
               return <div key={t.text}>{t.text}</div>

@@ -1,7 +1,18 @@
 .pagination {
+  max-width: 1000px;
   margin: 15px;
   display: flex;
   flex-wrap: wrap;
+  @media (max-width: 1540px) {
+    max-width: 800px;
+  }
+  @media (max-width: 1060px) {
+    max-width: 530px;
+  }
+  @media (max-width: 800px) {
+    margin: 0 auto;
+  }
+
   button {
     outline: none;
     border: none;
