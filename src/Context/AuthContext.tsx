@@ -16,7 +16,7 @@ const AuthProvider: FC = ({ children }) => {
   const navigate = useNavigate()
   const login = () => {
     setAuth(true)
-    navigate("/")
+    navigate("pokemons")
   }
   const logout = () => {
     setAuth(false)
