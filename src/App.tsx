@@ -21,8 +21,8 @@ const App: FC = () => {
             <Route path="require" element={<RequirePage />} />
           </Route>
           <Route element={<AuthRoutes />}>
-            <Route path="/" element={<HomePage />} />
-            <Route path="pokemon/:id" element={<PokemonPage />} />
+            <Route path="pokemons" element={<HomePage />} />
+            <Route path="pokemons/:id" element={<PokemonPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>

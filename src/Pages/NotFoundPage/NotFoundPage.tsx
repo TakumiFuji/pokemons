@@ -5,7 +5,7 @@ const NotFoundPage: FC = () => {
   return (
     <div>
       Неправильный URL адрес, возможно вы хотите попасть на
-      <Link to="/">Главную</Link> страницу
+      <Link to="pokemons">Главную</Link> страницу
     </div>
   )
 }

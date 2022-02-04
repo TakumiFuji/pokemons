@@ -19,7 +19,7 @@ const PokemonCard: FC<ICard> = ({ name, images, artist, id }) => {
           />
         </div>
         <div>
-          <Link to={`pokemon/${id}`} className="pokemon__link">
+          <Link to={`${id}`} className="pokemon__link">
             <h3>{name}</h3>
           </Link>
           <p>{artist}</p>
